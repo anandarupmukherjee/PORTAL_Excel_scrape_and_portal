@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+ 
+{% block title %} Contact {% endblock %}
+ 
+ 
+{% block body %}
+<center> 
+<h1>User Instructions</h1>
+</center>
+
+<form method="get" action="/search/">
+  Search PIR:<input type="text" name="q" id="id_q" value="{{ query }}"/>
+  <input type="submit" value="Search" />
+</form>
+
+{% for news in object %}
+
+<div>
+    <h3 style="color:red"><b>Record sheet: {{news.name}}</b></h3>
+    <h3>Design: {{news.quality}}</h3>
+    <p>Composition: {{news.composition}}</p>
+   <hr/>
+
+
+</div>
+
+{% endfor %}
+ 
+{% endblock %}

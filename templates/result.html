@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+
+<body>
+<h1>PIR Information</h1>
+
+<hr/>
+<input type="text" id="searchtxt" placeholder="Search Records" onkeyup="searchrecords()">
+
+
+<hr/>
+
+<table border="1" id ="table1">
+  <tr> 
+    <th>Name</th>
+    <th>Quality</th>
+    <th>Composition</th>
+  </tr>
+
+{% for displaydata in Object %}
+
+
+  <tr>
+    <td>{{displaydata.name}}</td>
+    <td><h3 style="color:red"><b>{{displaydata.quality}}</h3></td>
+    <td><h3 style="color:red"><b>{{displaydata.composition}}</h3></td>
+  </tr>
+
+{%endfor%}
+
+</table>
+
+<script>
+function searchrecords() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchtxt");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table1");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+
+
+
+</body>
+         
+
+
+</html>

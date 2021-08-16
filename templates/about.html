@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+ 
+{% block title %} About {% endblock %}
+ 
+ 
+{% block body %}
+<center> 
+<h1>Admin Page</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="run_script">Update Database</button>
+</form>
+
+</center>
+<br/>
+<h2>Status: {{obj}}</h2>
+ 
+{% endblock %}
