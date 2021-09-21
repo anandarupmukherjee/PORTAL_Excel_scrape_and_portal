@@ -100,7 +100,7 @@ for sheet in wb.worksheets:
 print("scrpt execution works")
 
 print("stage-1 ok")
-cnx = mysql.connector.connect(user='root',
+cnx = mysql.connector.connect(user='alex',
                               password='Password@123',
                               host='localhost',
                               database='table_test',)
